@@ -19,4 +19,12 @@ public class CityBusness {
     public void createCity(CityEntity cityEntity){
         this.cityRepository.createCity(cityToDto(cityEntity));
     }
+
+    public void updateCity(String id, CityEntity cityEntity){
+        this.cityRepository.updateCity(id, cityToDto(cityEntity));
+    }
+
+    public void deleteCity(String id){
+        this.cityRepository.deleteCity(id);
+    }
 }
