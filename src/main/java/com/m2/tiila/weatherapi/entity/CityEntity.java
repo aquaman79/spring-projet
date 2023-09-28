@@ -8,5 +8,5 @@ public class CityEntity {
     String name;
     String region;
     String country;
-    String codePostale;
+    String codepostale;
 }

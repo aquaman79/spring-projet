@@ -12,13 +12,13 @@ public class CityMapper {
         cityDto.setName(cityEntity.getName());
         cityDto.setRegion(cityEntity.getRegion());
         cityDto.setCountry(cityEntity.getCountry());
-        cityDto.setCodePostale(cityEntity.getCodePostale());
+        cityDto.setCodepostale(cityEntity.getCodepostale());
         return cityDto;
     }
 
     public static CityEntity cityToEntity(City city){
         CityEntity cityEntity = new CityEntity();
-        cityEntity.setCodePostale(city.getCodePostale());
+        cityEntity.setCodepostale(city.getCodepostale());
         cityEntity.setName(city.getName());
         cityEntity.setCountry(city.getCountry());
         cityEntity.setId(city.getId());

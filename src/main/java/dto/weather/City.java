@@ -12,6 +12,6 @@ public class City implements Serializable {
     String name;
     String region;
     String country;
-    String codePostale;
+    String codepostale;
 
 }

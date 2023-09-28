@@ -8,8 +8,12 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PutMapping;
+
+import java.util.List;
 
 import static com.m2.tiila.weatherapi.mapper.CityMapper.cityToEntity;
 
@@ -46,5 +50,12 @@ public class CityControlleur {
     public Response deleteCity(@PathParam("id") String id){
         this.cityBusness.deleteCity(id);
         return Response.ok().build();
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseEntity<List<City>> getAll(){
+        return new ResponseEntity<>( this.cityBusness.getAll(), HttpStatus.OK);
     }
 }
