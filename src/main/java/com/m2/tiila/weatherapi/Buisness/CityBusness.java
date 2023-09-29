@@ -2,6 +2,7 @@ package com.m2.tiila.weatherapi.Buisness;
 
 
 import com.m2.tiila.weatherapi.entity.CityEntity;
+import com.m2.tiila.weatherapi.exception.FunctionalException;
 import com.m2.tiila.weatherapi.mapper.CityMapper;
 import com.m2.tiila.weatherapi.repository.CityRepository;
 //import dto.weather.City;
@@ -22,7 +23,10 @@ public class CityBusness {
 
 
     public void createCity(CityEntity cityEntity){
-        this.cityRepository.createCity(cityToDto(cityEntity));
+        if(cityEntity.getId() != null)
+            this.cityRepository.createCity(cityToDto(cityEntity));
+        else
+            throw  new FunctionalException("ID_NULL", "L'id de la city ne doit pas etre null");
     }
 
     public void updateCity(String id, CityEntity cityEntity){

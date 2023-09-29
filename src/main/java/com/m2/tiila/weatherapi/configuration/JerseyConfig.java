@@ -12,6 +12,8 @@ public class JerseyConfig extends ResourceConfig {
     public JerseyConfig(){
         packages("com.m2.tiila.weatherapi.controller");
         packages("com/m2/tiila/weatherapi/filter");
+        packages("com/m2/tiila/weatherapi/exception");
+
     }
 
 }
