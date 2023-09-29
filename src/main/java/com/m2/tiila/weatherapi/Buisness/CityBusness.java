@@ -4,6 +4,7 @@ package com.m2.tiila.weatherapi.Buisness;
 import com.m2.tiila.weatherapi.entity.CityEntity;
 import com.m2.tiila.weatherapi.mapper.CityMapper;
 import com.m2.tiila.weatherapi.repository.CityRepository;
+//import dto.weather.City;
 import dto.weather.City;
 import jakarta.inject.Inject;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 import static com.m2.tiila.weatherapi.mapper.CityMapper.cityToDto;
+
 
 @Component
 public class CityBusness {
@@ -34,4 +36,8 @@ public class CityBusness {
     public List<City> getAll(){
        return  this.cityRepository.getAll();
     }
+
+//    public City getCity(String id){
+//        return this.cityRepository.getCity(id);
+//    }
 }

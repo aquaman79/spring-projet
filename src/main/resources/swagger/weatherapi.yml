@@ -1,36 +1,13 @@
 openapi: 3.0.0
 x-stoplight:
-  id: px3r4cgrcgqyv
+  id: n7zz5mxihr95g
 info:
-  title: weather_api
+  title: weather-api
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
 paths:
   /previsions:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Prevision'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-      operationId: get-Prevision
-      x-stoplight:
-        id: cmc4804pxmtfd
-    parameters: []
-  '/previsions/{city}':
     get:
       summary: Your GET endpoint
       tags: []
@@ -47,21 +24,60 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      operationId: get-prevision-city
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Prevision'
+      operationId: get-prevision
       x-stoplight:
-        id: 7pgy3huysrmlx
+        id: ehmo7tarux6w0
+    parameters: []
+  '/previsions/{city}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Prevision'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: get-previsions-city
+      x-stoplight:
+        id: fnfahlzak4ltd
       parameters:
         - schema:
             type: string
           in: query
-          name: 'date '
+          name: date
     parameters:
       - schema:
           type: string
         name: city
         in: path
         required: true
-  /citys:
+  /cities:
     get:
       summary: Your GET endpoint
       tags: []
@@ -80,44 +96,44 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      operationId: get-citys
+      operationId: get-cities
       x-stoplight:
-        id: 0bq57pumthxox
+        id: 6v34idau8ab5e
+    post:
+      summary: ''
+      operationId: post-cities
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-stoplight:
+        id: q9v8u1ggroa0e
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties: {}
+              $ref: '#/components/schemas/City'
     put:
       summary: ''
       operationId: '/{id}'
       responses:
         '200':
           description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/City'
+                $ref: '#/components/schemas/Error'
       x-stoplight:
-        id: sttss5skd315q
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/City'
-    post:
-      summary: ''
-      operationId: '/{id}'
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/City'
-      x-stoplight:
-        id: ji2jxjew0w5xw
+        id: 5asm02l6wmrah
       requestBody:
         content:
           application/json:
@@ -129,118 +145,91 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/City'
+          content: {}
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
-            application/xml:
-              schema:
                 $ref: '#/components/schemas/Error'
-      x-stoplight:
-        id: vp0641zqrbm83
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/City'
-  '/citys/{city}':
-    parameters:
-      - schema:
-          type: string
-        name: city
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: OK
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/City'
-      operationId: get-citys-city
+                $ref: '#/components/schemas/Error'
       x-stoplight:
-        id: hujmo2kn22ndk
+        id: 9e7w5efe8vai3
 components:
   schemas:
     Prevision:
       title: Prevision
       x-stoplight:
-        id: t1v3i91qyetxm
+        id: 78odxgmu5xowh
       type: object
       properties:
         date:
           type: string
           x-stoplight:
-            id: z9ihjhxw1q5or
+            id: n9pkxz7hnlapg
           format: date
         temperature:
           type: integer
           x-stoplight:
-            id: djdtt8xldi9ae
+            id: v4qmngd3yzccz
         city:
           type: string
           x-stoplight:
-            id: pyav8aymdo8wm
+            id: hhmmuuxhnysh4
         state:
-          $ref: '#/components/schemas/Weither_state'
-    Weither_state:
-      title: Weither_state
+          $ref: '#/components/schemas/WeatherState'
+    WeatherState:
+      title: WeatherState
       x-stoplight:
-        id: l541ftz7zihc9
+        id: ybhwotop6365d
       enum:
-        - ensoleillé
-        - nuageux
-        - pluvieux
-        - 'venteux '
-        - neigeux
+        - NUAGEUX
+        - PLUVIEUX
+        - NEIGEUX
+        - VENTEUX
+        - ENSOLEILLE
     Error:
       title: Error
       x-stoplight:
-        id: 9i1fjeetg5qo4
+        id: ru6u6a61rvthr
       type: object
       properties:
         code:
           type: string
           x-stoplight:
-            id: vkaxhegpkv6ry
+            id: hd4z3vw24z4i3
         description:
           type: string
           x-stoplight:
-            id: 9bs4nfhot4j2i
+            id: u91v627h9buq6
     City:
       title: City
       x-stoplight:
-        id: 45gxnkcxzdi8a
+        id: mlhgx9zx2zr5y
       type: object
       properties:
         id:
           type: string
           x-stoplight:
-            id: v50hhrck4j5pg
-        nom_ville:
-          type: string
-          x-stoplight:
-            id: fq7wscv8npzyw
-        poste_code:
+            id: sa4llp5hee355
+        posteCode:
           type: integer
           x-stoplight:
-            id: vk5cipkek9w9t
+            id: j9a1v00mnfrgw
+        name:
+          type: string
+          x-stoplight:
+            id: a0afybogeaf5f
         country:
           type: string
           x-stoplight:
-            id: xj43xni6branb
+            id: zeil97ioc0hww
         region:
           type: string
           x-stoplight:
-            id: cm4ayj1aaqf1j
+            id: f81o7af0kyr62

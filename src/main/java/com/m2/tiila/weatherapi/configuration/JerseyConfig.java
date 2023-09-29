@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @ApplicationPath("/api/v1")
 public class JerseyConfig extends ResourceConfig {
 
+    //spring doit instancier tous les beans qui sont dans ce controller
     public JerseyConfig(){
         packages("com.m2.tiila.weatherapi.controller");
     }

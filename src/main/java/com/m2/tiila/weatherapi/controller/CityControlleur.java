@@ -21,6 +21,8 @@ import static com.m2.tiila.weatherapi.mapper.CityMapper.cityToEntity;
 @Path("/citys")
 public class CityControlleur {
 
+
+    //spring doit aller chercher une classe s'appelle citybuesneess et doit l'injecter
     @Inject
     private CityBusness cityBusness;
 
@@ -58,4 +60,13 @@ public class CityControlleur {
     public ResponseEntity<List<City>> getAll(){
         return new ResponseEntity<>( this.cityBusness.getAll(), HttpStatus.OK);
     }
+
+//    @GET
+//    @Path("/{id}")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public ResponseEntity<City> getCity(@PathParam("id") String id){
+//        return new ResponseEntity<>(this.cityBusness.getCity(id),HttpStatus.OK);
+//    }
+
 }
