@@ -1,7 +1,7 @@
 package com.m2.tiila.weatherapi.repository;
 
 
-import dto.weather.City;
+import dto.weatherapi.City;
 import jakarta.inject.Inject;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -27,7 +27,7 @@ public class CityRepository {
         //preparer les parametres
         var params = new HashMap<String,String>();
         params.put("id",city.getId());
-        params.put("name",city.getNomVille());
+        params.put("name",city.getName());
         params.put("region",city.getRegion());
         params.put("country",city.getCountry());
         params.put("codepostal", String.valueOf(city.getPosteCode()));
@@ -39,7 +39,7 @@ public class CityRepository {
         //preparer les parametres
         var params = new HashMap<String,String>();
         params.put("id",id);
-        params.put("name",city.getNomVille());
+        params.put("name",city.getName());
         params.put("region",city.getRegion());
         params.put("country",city.getCountry());
         params.put("codepostal", String.valueOf(city.getPosteCode()));

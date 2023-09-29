@@ -5,7 +5,7 @@ import com.m2.tiila.weatherapi.entity.CityEntity;
 import com.m2.tiila.weatherapi.mapper.CityMapper;
 import com.m2.tiila.weatherapi.repository.CityRepository;
 //import dto.weather.City;
-import dto.weather.City;
+import dto.weatherapi.City;
 import jakarta.inject.Inject;
 import org.springframework.stereotype.Component;
 

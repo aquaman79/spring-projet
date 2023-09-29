@@ -2,7 +2,8 @@ package com.m2.tiila.weatherapi.controller;
 
 
 import com.m2.tiila.weatherapi.Buisness.CityBusness;
-import dto.weather.City;
+import com.m2.tiila.weatherapi.filter.AuthentificationRequired;
+import dto.weatherapi.City;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -30,6 +31,7 @@ public class CityControlleur {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @AuthentificationRequired
     public Response createCity(City city){
         this.cityBusness.createCity(cityToEntity(city));
         return Response.ok().build();
