@@ -1,4 +1,8 @@
 spring:
+  cloud:
+      mvc:
+        token-relay:
+          enabled: false
   datasource:
     url: jdbc:h2:mem:meteo;mode=oracle
     username: tiila
@@ -8,3 +12,7 @@ spring:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
   h2:
       console.enabled: true
+
+  secrets:
+    openweather:
+      token: 5ae8e5ba9d5fd2580dee47b602bd7700
