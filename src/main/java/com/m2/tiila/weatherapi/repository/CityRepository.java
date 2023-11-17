@@ -46,6 +46,7 @@ public class CityRepository {
         this.namedParameterJdbcTemplate.update(SQL_UPDATE_CITY,params);
     }
 
+
     public void deleteCity(String id ){
         var params = new HashMap<String,String>();
         params.put("id",id);
