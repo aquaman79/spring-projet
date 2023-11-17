@@ -42,16 +42,12 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.h2database/h2
 	implementation("com.h2database:h2:2.2.224")
 	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
-
-
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 	implementation("io.github.openfeign:feign-jackson")
 	// https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp
 	implementation("io.github.openfeign:feign-okhttp")
 	// https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
 	implementation("com.squareup.okhttp3:okhttp:4.12.0")
-
-
 }
 
 tasks.withType<Test> {
