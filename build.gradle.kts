@@ -48,6 +48,12 @@ dependencies {
 	implementation("io.github.openfeign:feign-okhttp")
 	// https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
 	implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+	implementation("org.springframework.boot:spring-boot-starter-cache")
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+
 }
 
 tasks.withType<Test> {

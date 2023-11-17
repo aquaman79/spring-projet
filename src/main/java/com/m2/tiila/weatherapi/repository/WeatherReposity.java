@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class WeatherReposity {
 
-
+    @Inject
     private OpenWeeatherClient openWeeatherClient;
 
 
