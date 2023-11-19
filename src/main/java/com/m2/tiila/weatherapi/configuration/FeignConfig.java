@@ -6,6 +6,7 @@ import com.m2.tiila.weatherapi.repository.client.OpenWeeatherClient;
 import com.m2.tiila.weatherapi.repository.intercepteur.OpenWeitherIntercepteur;
 import feign.Feign;
 import feign.Logger;
+import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.okhttp.OkHttpClient;
 import jakarta.inject.Inject;
@@ -25,8 +26,8 @@ public class FeignConfig {
     public OpenWeeatherClient getOpenWeatherClient(){
        return  Feign.builder()
                 .encoder(new JacksonEncoder(objectMapper))
-                .encoder(new JacksonEncoder(objectMapper))
-                .client(new OkHttpClient(getOkHttpClient()))
+               .decoder(new JacksonDecoder(objectMapper))
+               .client(new OkHttpClient(getOkHttpClient()))
                .requestInterceptor(intercepteur)
                .logger(new Logger.JavaLogger(FeignConfig.class))
                .logLevel(Logger.Level.FULL)

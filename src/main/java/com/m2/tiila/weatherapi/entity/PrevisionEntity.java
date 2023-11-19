@@ -2,6 +2,7 @@ package com.m2.tiila.weatherapi.entity;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 
@@ -11,9 +12,9 @@ public class PrevisionEntity {
 
     private String city;
 
-    private String state;
+  //  private String state;
 
-    private float temperature;
+    private BigDecimal temperature;
 
 
 }

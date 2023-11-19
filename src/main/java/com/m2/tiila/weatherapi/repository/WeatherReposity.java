@@ -1,6 +1,7 @@
 package com.m2.tiila.weatherapi.repository;
 
 import com.m2.tiila.weatherapi.repository.client.OpenWeeatherClient;
+import dto.openweather_swagger.Model200;
 import dto.weatherapi.City;
 import jakarta.inject.Inject;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,16 +20,14 @@ public class WeatherReposity {
     private String token;
 
     @Inject
-    CityRepository cityRepository;
+    private CityRepository cityRepository;
 
-    public Object getCityWeather(String cityName) {
+    public Model200 getCityWeather(String cityName) {
 
         List<City> citys = cityRepository.getAll();
         if(citys.contains(cityName)){
             return this.openWeeatherClient.getWeather(cityName, token);
-
         }
-
         return this.openWeeatherClient.getWeather(cityName, token);
     }
 }

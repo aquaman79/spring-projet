@@ -1,6 +1,7 @@
 package com.m2.tiila.weatherapi.mapper;
 
 import com.m2.tiila.weatherapi.entity.PrevisionEntity;
+import dto.openweather_swagger.Model200;
 import dto.weatherapi.Prevision;
 import dto.weatherapi.WeatherState;
 
@@ -8,15 +9,24 @@ import java.time.Instant;
 import java.time.LocalDate;
 
 public class WeitherMapper {
-    public static Prevision toDto(PrevisionEntity entity){
-        Prevision prevision = new Prevision();
+//    public static Prevision toDto(PrevisionEntity entity){
+//        Prevision prevision = new Prevision();
+//
+//        prevision.setDate(LocalDate.from(entity.getDate()));
+//        prevision.setTemperature(entity.getTemperature());
+//        prevision.setCity(entity.getCity());
+//        prevision.setState(mapToExternal(WeatherState.valueOf(entity.getState())));
+//
+//        return prevision;
+//    }
 
-        prevision.setDate(LocalDate.from(entity.getDate()));
-        prevision.setTemperature((int) entity.getTemperature());
-        prevision.setCity(entity.getCity());
-        prevision.setState(mapToExternal(WeatherState.valueOf(entity.getState())));
+    public static PrevisionEntity toEntity(Model200 dto){
+        PrevisionEntity previsionEntity = new PrevisionEntity();
 
-        return prevision;
+        previsionEntity.setCity(dto.getName());
+        previsionEntity.setTemperature(dto.getMain().getTemp());
+        previsionEntity.setDate(Instant.ofEpochSecond(dto.getDt()));
+        return previsionEntity;
     }
     public static dto.weatherapi.WeatherState mapToExternal(WeatherState internalWeatherState) {
         switch (internalWeatherState) {

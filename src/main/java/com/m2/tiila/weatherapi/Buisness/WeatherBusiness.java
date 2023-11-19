@@ -10,26 +10,24 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static com.m2.tiila.weatherapi.mapper.WeitherMapper.toEntity;
+
 @Component
 
 public class WeatherBusiness {
 
 
     @Inject
-    static WeatherReposity weatherReposity;
+    private  WeatherReposity weatherReposity;
 
-    @Inject
-    static CityRepository cityRepository;
+//    @Inject
+//     static CityRepository cityRepository;
 
-    public static Object getCityWeather(String city,String user) {
-        List<City> cities = cityRepository.getAll();
-        if(user!=null || cities.contains(city)){
-            return weatherReposity.getCityWeather(city);
-        }
-        return null;
+    public  PrevisionEntity getCityWeather(String city,String user) {
+       // List<City> cities = cityRepository.getAll();
+//        if(user!=null || cities.contains(city)){
+            return toEntity(weatherReposity.getCityWeather(city));
+//        }
     }
-
-
-
 
 }
