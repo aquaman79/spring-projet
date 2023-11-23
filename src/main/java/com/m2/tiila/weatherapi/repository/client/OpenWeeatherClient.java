@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 
 public interface OpenWeeatherClient {
-    @Cacheable(value = "weather",key="#cityName")
+   // @Cacheable(value = "weather",key="#cityName")
     @RequestLine("GET /data/2.5/weather?q={cityName}&appid={token}&units=matric")
     Model200 getWeather(
             @Param("cityName") String cityName,

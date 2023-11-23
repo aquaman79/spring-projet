@@ -3,6 +3,7 @@ package com.m2.tiila.weatherapi.controller;
 
 import com.m2.tiila.weatherapi.Buisness.CityBusness;
 import com.m2.tiila.weatherapi.Buisness.WeatherBusiness;
+import com.m2.tiila.weatherapi.dto.User;
 import com.m2.tiila.weatherapi.filter.AuthentificationRequired;
 import dto.weatherapi.City;
 import jakarta.inject.Inject;
@@ -37,8 +38,7 @@ public class WeitherControlleur {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{city}")
-    public Response previsions(@PathParam("city") String city,@HeaderParam("user-agent")String user){
-
+    public Response previsions(@PathParam("city") String city,@HeaderParam("user-agent") String user){
         return Response.ok(    weatherBusiness.getCityWeather(city,user)).build();
     }
 }

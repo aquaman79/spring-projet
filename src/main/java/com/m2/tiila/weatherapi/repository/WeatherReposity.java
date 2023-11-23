@@ -23,11 +23,6 @@ public class WeatherReposity {
     private CityRepository cityRepository;
 
     public Model200 getCityWeather(String cityName) {
-
-        List<City> citys = cityRepository.getAll();
-        if(citys.contains(cityName)){
-            return this.openWeeatherClient.getWeather(cityName, token);
-        }
         return this.openWeeatherClient.getWeather(cityName, token);
     }
 }
